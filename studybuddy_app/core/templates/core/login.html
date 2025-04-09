@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Login – StudyBuddy{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="col-md-6 col-lg-4">
+        <div class="card shadow-lg border-0 rounded-4 p-4">
+            <div class="text-center mb-4">
+                <h3 class="fw-bold">Welcome Back 👋</h3>
+                <p class="text-muted">Login to your StudyBuddy account</p>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                </div>
+                <div class="mb-3">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+            <div class="text-center mt-3">
+                <small>
+                    Don’t have an account? 
+                    <a href="{% url 'register' %}" class="text-decoration-none">Sign up</a>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

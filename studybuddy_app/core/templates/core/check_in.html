@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Daily Wellness Check-In – StudyBuddy{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Card for wellness check-in -->
+    <div class="card shadow-lg mx-auto" style="max-width: 600px; border-radius: 15px;">
+        <div class="card-body">
+            <h3 class="card-title mb-4 text-center">Daily Wellness Check-In</h3>
+            <p class="text-muted text-center mb-4">
+                Take a moment to reflect. Your well-being matters.
+            </p>
+
+            <!-- Form section -->
+            <form method="post" class="d-flex flex-column align-items-center">
+                {% csrf_token %}
+                
+                <!-- Form fields styled for better spacing -->
+                <div class="w-100 mb-3">
+                    {{ form.as_p }}
+                </div>
+
+                <!-- Submit Button  -->
+                <button type="submit" class="btn btn-primary w-100 mt-3" style="border-radius: 8px; padding: 12px;">
+                    Submit Check-In
+                </button>
+            </form>
+
+            <!-- Navigation link -->
+            <div class="text-center mt-4">
+                <a href="{% url 'home' %}" class="btn btn-link text-primary" style="text-decoration: none; font-size: 1rem;">
+                    ← Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
